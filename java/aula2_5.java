@@ -19,17 +19,17 @@ public class aula2_5
         }
         else if (econome >= 2000.01f && econome <=3000f) 
         {
-            money = (econome - 1000) * 0.08f;
+            money = (econome - 2000) * 0.08f;
             System.out.printf("faz o L e paga: %.2f",money);
         }
         else if (econome >= 3000.01f && econome <=4500f) 
         {
-            money = (econome - 1000) * 0.18f;
+            money = (econome - 3000) * 0.18f;
             System.out.printf("faz o L e paga: %.2f",money);
         }
         else if (econome > 4500f) 
         {
-            money = (econome - 1000) * 0.28f;
+            money = (econome - 4500) * 0.28f;
             System.out.printf("faz o L e paga: %.2f",money);
         }
     }   
