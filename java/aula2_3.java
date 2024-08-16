@@ -10,7 +10,7 @@ public class aula2_3
         Scanner input = new Scanner(System.in);
         int[] number = new int[2];
 
-        for (int c = 0; c < 10; c++) 
+        for (int c = 0; c < 2; c++) 
         {
             System.out.print("digite um numero: ");
             number[c] = input.nextInt();
