@@ -16,7 +16,8 @@ public class aula2_4
         int size = input.nextInt();
         input.close();
 
-        switch (code) {
+        switch (code) 
+        {
             case 1:
                 price = 4f;
                 System.out.printf("\n\n\n\nvalor a pagar: R$%.2f",price*size);
