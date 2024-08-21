@@ -35,8 +35,11 @@ public class Aula3_1
                 System.out.print("código invalido, digite outro: ");
                 code = input.next().charAt(0);
             }
+            System.out.println("\n\n\nDIGITE 4 PARA ENCERRAR\n\n\n");
+            System.out.println("Digite mais um codigo: ");
+            code = input.next().charAt(0);
         }
-        System.out.println("alcool: " + gas[0]);
+        System.out.println("\n\nalcool: " + gas[0]);
         System.out.println("gasolina: " + gas[1]);
         System.out.println("diesel: " + gas[2]);
     }
