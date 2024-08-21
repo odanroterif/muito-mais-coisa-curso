@@ -7,17 +7,19 @@ public class Aula3_2
     public static void main(String[] args) 
     {
         Scanner input = new Scanner(System.in);        
-        int c = 0;
-        int[] numbers = new int[c+1];
+        int c = 1;
+        int[] numbers = new int[c];
         
         System.out.print("Digite numeros positivos: ");
-        numbers[c] = input.nextInt();
+        int number = input.nextInt();
+        numbers[c-1] = number;
 
-        while (numbers[c] >= 0) 
-        {            
+        while (number >= 0) 
+        {                     
             System.out.print("continue digitando: ");
-            numbers[c+1] = input.nextInt();
+            number = input.nextInt();
             c++;
+            numbers[c-1] = number;                           
         }
         System.out.println("PARES\n");
         for (int i = 0; i < c; i++) 
