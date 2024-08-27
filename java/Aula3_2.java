@@ -1,41 +1,40 @@
 package com.mycompany.aula3_2;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
-public class Aula3_2
+public class Aula3_2 
 {
+
     public static void main(String[] args) 
     {
-        Scanner input = new Scanner(System.in);        
-        int c = 1;
-        int[] numbers = new int[c];
-        
+        Scanner input = new Scanner(System.in);
+        ArrayList<Integer> numbers = new ArrayList<>();
+
         System.out.print("Digite numeros positivos: ");
         int number = input.nextInt();
-        numbers[c-1] = number;
+        numbers.add(number);
 
         while (number >= 0) 
-        {                     
+        {
             System.out.print("continue digitando: ");
             number = input.nextInt();
-            c++;
-            numbers[c-1] = number;                           
+            numbers.add(number);
         }
-        System.out.println("PARES\n");
-        for (int i = 0; i < c; i++) 
+        System.out.println("\n\n\nPARES: ");
+        for (int object : numbers) 
         {
-            if (numbers[i] % 2 == 0) 
+            if (object % 2 == 0 && object >= 0) 
             {
-               System.out.println(numbers[i]);               
-            }            
+                System.out.println(object);
+            }
         }
-         System.out.println("IMPARES\n");
-        for (int i = 0; i < c; i++) 
-        {
-            if (numbers[i] % 2 != 0) 
+        System.out.println("\nIMPARES: ");
+        for (int object : numbers) {
+            if (object % 2 != 0 && object >= 0) 
             {
-               System.out.println(numbers[i]);               
-            }            
-        }      
+                System.out.println(object);
+            }
+        }
     }
 }
