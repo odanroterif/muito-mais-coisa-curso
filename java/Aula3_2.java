@@ -30,7 +30,8 @@ public class Aula3_2
             }
         }
         System.out.println("\nIMPARES: ");
-        for (int object : numbers) {
+        for (int object : numbers) 
+        {
             if (object % 2 != 0 && object >= 0) 
             {
                 System.out.println(object);
