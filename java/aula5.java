@@ -54,30 +54,3 @@ public class employer
     }
 }
 #----------------------------------------------------------------------------------
-  
-package calculos;
-
-
-public class increase  extends wage
-{
-    public void increased(int percent, double W)
-    {
-      double percenti = percent/100;
-      
-      System.out.println("seu salario final é " +  (W * percenti));
-  
-    }
-}
-//-------------------------------------------------
-package calculos;
-
-
-public class wage 
-{
-     
-    public double liquid_calculate( double brute, double tax)
-    {
-       
-        return brute - tax;
-    }
-}
