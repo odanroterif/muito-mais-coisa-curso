@@ -1,8 +1,5 @@
 // C++ code
 //
-
-
-
 int piezo = 2;
 int piezo_two = 3;
 int red_led = 4;
@@ -53,7 +50,7 @@ void loop()
   int condition = digitalRead(white_led);
   String password = "2468";
   
-  Serial.println(condition);
+  Serial.println(potenciometro_value);
   //botão
   if(button_state == HIGH && condition == 0)
   {    
@@ -62,5 +59,9 @@ void loop()
   else if (button_state == HIGH && condition == 1)
   {    
     digitalWrite(white_led,LOW);
+  }
+  //potenciomentro
+  if(potenciometro_value >= 400 && potenciometro_value <= 500)
+  {
   }
 }
