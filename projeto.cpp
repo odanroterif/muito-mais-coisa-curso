@@ -12,9 +12,21 @@ int light_sensor = A0;
 int sensor_value = 0;
 int button = 8;
 int pir_sensor = 9;
+int pir_sensor_state = 0;
 int potenciomentro_position = A1;
 int potenciometro_value = 0;
-int keyboard;
+//keypad variables-------------
+const int line = 4;
+const int column = 4;
+int line_pins[line] = {7,10,11,12};
+int column_pins[column] = {A5,A4,A3,13};
+char keypad[line][column] = {
+  {'0','1','2','3'},
+  {'4','5','6','7'},
+  {'8','9','A','B'},
+  {'C','D','E','F'}
+};
+//-----------------------------
     
   
 void setup()
@@ -34,4 +46,5 @@ void loop()
 {
   sensor_value = analogRead(light_sensor);
   potenciometro_value = analogRead(potenciomentro_position);
+  pir_sensor_state = analogRead(pir_sensor);
 }
