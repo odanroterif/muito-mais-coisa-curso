@@ -1,21 +1,32 @@
 // C++ code
 //
-int piezo;
-int piezo_two;
-int red_led;
-int second_red_led;
-int white_led;
-int fotoresistor;
+int piezo = 2;
+int piezo_two = 3;
+int red_led = 4;
+int second_red_led = 6;
+int white_led =  5;
+int light_sensor = A0;
+int sensor_value = 0;
 int button;
 int pir_sensor;
+int potenciomentro_position = A1;
+int potenciometro_value = 0;
+int keyboard;
     
   
 void setup()
 {
-
+  pinMode(red_led,OUTPUT);
+  pinMode(second_red_led,OUTPUT);
+  pinMode(piezo, OUTPUT);
+  pinMode(white_led,OUTPUT);
+  pinMode(piezo_two_led,OUTPUT);
+  pinMode(piezo, OUTPUT);
+  Serial.begin(9600);
 }
 
 void loop()
 {
-  delay(10); // Delay a little bit to improve simulation performance
+  sensor_value = analogRead(light_sensor);
+  potenciometro_value = analogRead(potenciomentro_position);
 }
