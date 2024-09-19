@@ -50,17 +50,17 @@ void loop()
   sensor_value = analogRead(light_sensor);
   potenciometro_value = analogRead(potenciomentro_position);
   pir_sensor_state = analogRead(pir_sensor);
+  int condition = digitalRead(white_led);
   String password = "2468";
   
-  Serial.println(button_state);
-  if(isPressed() && button_state == 1)
-  {
-    button_state = 0;
+  Serial.println(condition);
+  //botão
+  if(button_state == HIGH && condition == 0)
+  {    
     digitalWrite(white_led,HIGH);
   }  
-  else if (isPressed() && button_state != 1)
-  {
-    button_state = 1;
+  else if (button_state == HIGH && condition == 1)
+  {    
     digitalWrite(white_led,LOW);
   }
 }
