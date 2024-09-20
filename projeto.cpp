@@ -77,7 +77,7 @@ void piezo_sequence()
     delay(300);
     digitalWrite(piezo_two,LOW);
     digitalWrite(piezo,HIGH);
-    delay(3000);  
+    delay(2500);  
     digitalWrite(piezo,LOW);
     digitalWrite(piezo_two,HIGH);
     delay(300);
@@ -89,8 +89,26 @@ void piezo_sequence()
     delay(300);
     digitalWrite(piezo_two,LOW);
     digitalWrite(piezo,HIGH);
+    delay(2500);    
+    digitalWrite(piezo,LOW);
+    digitalWrite(piezo_two,HIGH);
+    delay(300);
+    digitalWrite(piezo_two,LOW);
+    digitalWrite(piezo,HIGH);
+    delay(300);
+    digitalWrite(piezo,LOW);
+    digitalWrite(piezo_two,HIGH);
     delay(2500);
-    digitalWrite(white_led,LOW);
+    digitalWrite(piezo,LOW);
+    digitalWrite(piezo_two,HIGH);
     delay(300);
-    digitalWrite(white_led,LOW);
+    digitalWrite(piezo_two,LOW);
+    digitalWrite(piezo,HIGH);
+    delay(300);
+    digitalWrite(piezo,LOW);
+    digitalWrite(piezo_two,HIGH);
+    delay(300);
+    digitalWrite(piezo_two,LOW);
+    digitalWrite(piezo,HIGH);
+    delay(2500);   // 4  
 }
