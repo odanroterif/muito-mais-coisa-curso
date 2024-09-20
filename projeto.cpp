@@ -64,6 +64,33 @@ void loop()
   }
   //potenciomentro
   if(potenciometro_value >= 400 && potenciometro_value <= 500)
-  {
+  { 
+    piezo_sequence();
   }
+}
+void piezo_sequence()
+{
+    digitalWrite(piezo,HIGH);
+    delay(300);
+    digitalWrite(piezo,LOW);
+    digitalWrite(piezo_two,HIGH);
+    delay(300);
+    digitalWrite(piezo_two,LOW);
+    digitalWrite(piezo,HIGH);
+    delay(3000);  
+    digitalWrite(piezo,LOW);
+    digitalWrite(piezo_two,HIGH);
+    delay(300);
+    digitalWrite(piezo_two,LOW);
+    digitalWrite(piezo,HIGH);
+    delay(300);
+    digitalWrite(piezo,LOW);
+    digitalWrite(piezo_two,HIGH);
+    delay(300);
+    digitalWrite(piezo_two,LOW);
+    digitalWrite(piezo,HIGH);
+    delay(2500);
+    digitalWrite(white_led,LOW);
+    delay(300);
+    digitalWrite(white_led,LOW);
 }
