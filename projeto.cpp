@@ -48,11 +48,11 @@ void loop()
   button_state = digitalRead(button);
   sensor_value = analogRead(light_sensor);
   potenciometro_value = analogRead(potenciomentro_position);
-  pir_sensor_state = analogRead(pir_sensor);
+  pir_sensor_state = digitalRead(pir_sensor);
   int condition = digitalRead(white_led);
   String password = "2468";
   
-  Serial.println(sensor_value);
+  Serial.println(pir_sensor_state);
   //botão
   if(button_state == HIGH && condition == 0)
   {    
@@ -86,6 +86,18 @@ void loop()
      digitalWrite(piezo_two,LOW);
      digitalWrite(piezo,LOW);
      delay(800);
+  }
+  //sensor de movimento
+  if(pir_sensor_state == HIGH)
+  {
+    digitalWrite(piezo_two,HIGH);
+    digitalWrite(piezo,HIGH);
+    delay(1000);
+  }
+  else 
+  {    
+    digitalWrite(piezo_two,LOW);
+    digitalWrite(piezo,LOW);
   }
 }
 void piezo_sequence()
