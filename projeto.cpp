@@ -52,7 +52,7 @@ void loop()
   int condition = digitalRead(white_led);
   String password = "2468";
   
-  Serial.println(potenciometro_value);
+  Serial.println(sensor_value);
   //botão
   if(button_state == HIGH && condition == 0)
   {    
@@ -66,6 +66,26 @@ void loop()
   if(potenciometro_value >= 400 && potenciometro_value <= 500)
   { 
     piezo_sequence();
+  }
+  else
+  {
+    digitalWrite(piezo_two,LOW);
+    digitalWrite(piezo,LOW);
+  }
+  //fotoresistor
+  if(sensor_value > 150)
+  { 
+    digitalWrite(piezo_two,LOW);
+    digitalWrite(piezo,LOW);
+  }
+  else
+  {
+     digitalWrite(piezo_two,HIGH);
+     digitalWrite(piezo,HIGH);
+     delay(800);
+     digitalWrite(piezo_two,LOW);
+     digitalWrite(piezo,LOW);
+     delay(800);
   }
 }
 void piezo_sequence()
@@ -175,9 +195,3 @@ void piezo_sequence()
     digitalWrite(piezo,LOW);
     delay(5500);
 }
-  
-
-
-
-
-
