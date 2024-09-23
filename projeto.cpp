@@ -15,16 +15,17 @@ int pir_sensor_state = 0;
 int potenciomentro_position = A1;
 int potenciometro_value = 0;
 int button_state = 0;
+String password = "";
 //keypad variables-------------
 const byte line = 4;
 const byte column = 4;
 byte line_pins[line] = {7,10,11,12};
 byte column_pins[column] = {A5,A4,A3,13};
 char keipad[line][column] = {
-  {'0','1','2','3'},
-  {'4','5','6','7'},
-  {'8','9','A','B'},
-  {'C','D','E','F'}
+  {'1','2','3','A'},
+  {'4','5','6','B'},
+  {'7','8','9','C'},
+  {'*','0','#','D'}
 };
 Keypad keypad = Keypad(makeKeymap(keipad),line_pins,column_pins,line,column); 
 //-----------------------------
@@ -50,9 +51,10 @@ void loop()
   potenciometro_value = analogRead(potenciomentro_position);
   pir_sensor_state = digitalRead(pir_sensor);
   int condition = digitalRead(white_led);
-  String password = "2468";
+  char read = keypad.getKey();
   
-  Serial.println(pir_sensor_state);
+  
+  //Serial.println(sensor_value);
   //botão
   if(button_state == HIGH && condition == 0)
   {    
@@ -73,18 +75,24 @@ void loop()
     digitalWrite(piezo,LOW);
   }
   //fotoresistor
-  if(sensor_value > 150)
+  if(sensor_value > 130)
   { 
     digitalWrite(piezo_two,LOW);
     digitalWrite(piezo,LOW);
+    digitalWrite(red_led,LOW);
+    digitalWrite(second_red_led,LOW);
   }
   else
   {
      digitalWrite(piezo_two,HIGH);
-     digitalWrite(piezo,HIGH);
+     digitalWrite(piezo,HIGH);     
+     digitalWrite(red_led,HIGH);
+     digitalWrite(second_red_led,HIGH);
      delay(800);
      digitalWrite(piezo_two,LOW);
      digitalWrite(piezo,LOW);
+     digitalWrite(red_led,LOW);
+     digitalWrite(second_red_led,LOW);
      delay(800);
   }
   //sensor de movimento
@@ -92,13 +100,37 @@ void loop()
   {
     digitalWrite(piezo_two,HIGH);
     digitalWrite(piezo,HIGH);
+    digitalWrite(red_led,HIGH);
+    digitalWrite(second_red_led,HIGH);
     delay(1000);
   }
   else 
   {    
     digitalWrite(piezo_two,LOW);
     digitalWrite(piezo,LOW);
+    digitalWrite(red_led,LOW);
+    digitalWrite(second_red_led,LOW);
   }
+  //keypad 14910
+  if(keypad.getState() == PRESSED)
+  {
+     if(keypad.isPressed('5'))
+     {
+        digitalWrite(white_led,HIGH);
+     } 
+     else if(keypad.isPressed('0'))
+     {
+       digitalWrite(piezo_two,HIGH);
+       digitalWrite(piezo,HIGH);
+       digitalWrite(red_led,HIGH);
+       digitalWrite(second_red_led,HIGH);
+       delay(1000);
+       digitalWrite(piezo_two,LOW);
+       digitalWrite(piezo,LOW);
+       digitalWrite(red_led,LOW);
+       digitalWrite(second_red_led,LOW);
+     }     
+  } 
 }
 void piezo_sequence()
 {
