@@ -116,9 +116,13 @@ void loop()
   {
      if(keypad.isPressed('5'))
      {
+        digitalWrite(piezo_two,LOW);
+        digitalWrite(piezo,LOW);
+        digitalWrite(red_led,LOW);
+        digitalWrite(second_red_led,LOW);
         digitalWrite(white_led,HIGH);
      } 
-     else if(keypad.isPressed('0'))
+     else if(!keypad.isPressed('5'))
      {
        digitalWrite(piezo_two,HIGH);
        digitalWrite(piezo,HIGH);
