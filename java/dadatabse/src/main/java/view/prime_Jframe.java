@@ -109,8 +109,19 @@ public class prime_Jframe extends javax.swing.JFrame
             String name = name_field.getText();
             String city = city_field.getText();
             
-            emplo.setCity(city);
-            emplo.setName(name);
+            Name = Name.toLowerCase();
+            City = City.toLowerCase();
+            
+            if (!"alagoinhas".equals(City)) 
+            {
+                emplo.setCity(City);
+            }         
+            
+            if (!"francisco".equals(Name))
+            {
+                emplo.setName(Name);
+            }
+        
             emplo_co.sign_in(emplo);
     }//GEN-LAST:event_send_buttonActionPerformed
 
